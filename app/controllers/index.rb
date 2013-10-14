@@ -12,7 +12,8 @@ post '/rolls' do
   @roll = value ? Roll.create({ value: value }) : Roll.create
 
   if request.xhr?
-    erb :_die_roll, :layout => false
+    content_type :json
+    {roll: @roll.value}.to_json
   else
     erb :index
   end

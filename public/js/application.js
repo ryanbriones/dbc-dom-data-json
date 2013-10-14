@@ -6,7 +6,8 @@ $(document).ready(function () {
     var data = $(this).serialize();
 
     $.post(url, data, function(response) {
-      $("#die").html(response);
-    })
+      var html = '<img src="/' + response.roll + '.png" />';
+      $("#die").html(html)
+    }, "json");
   })
 });

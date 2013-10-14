@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  var template = "<img />"
   $("#roll-form").submit(function(event) {
     event.preventDefault();
 
@@ -6,7 +7,7 @@ $(document).ready(function () {
     var data = $(this).serialize();
 
     $.post(url, data, function(response) {
-      var html = '<img src="/' + response.roll + '.png" />';
+      var html = $(template).attr("src", "/" + response.roll + ".png");
       $("#die").html(html)
     }, "json");
   })

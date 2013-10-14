@@ -3,7 +3,9 @@ $(document).ready(function () {
     event.preventDefault();
 
     var url = $(this).attr("action");
-    var data = $(this).serialize();
+    var data = {
+      value: $(this).data("roll")
+    }
 
     $.post(url, data, function(response) {
       $("#die").html(response);
